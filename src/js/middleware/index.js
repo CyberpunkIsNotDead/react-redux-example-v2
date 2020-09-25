@@ -1,4 +1,4 @@
-import { ADD_ARTICLE } from "../constants/action-types";
+import { ADD_ARTICLE, FOUND_BAD_WORD } from "../constants/action-types";
 
 const forbiddenWords = ["spam", "money"];
 
@@ -11,7 +11,7 @@ export const forbiddenWordsMiddleware = ({ dispatch }) => (next) => (
     );
 
     if (foundWord.length) {
-      dispatch({ type: "FOUND_BAD_WORD" });
+      dispatch({ type: FOUND_BAD_WORD });
     }
   }
   return next(action);
